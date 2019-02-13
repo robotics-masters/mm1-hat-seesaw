@@ -204,8 +204,8 @@
 //* =========== USB ================ *//
 #define CONFIG_USB 1
 
-#define USB_VID 0x239A
-#define USB_PID 0x002E
+#define USB_VID 0x0005
+#define USB_PID 0x0007
 
 #define USB_PRODUCT "Robotics Masters MM1 HAT"
 
