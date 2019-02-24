@@ -1,7 +1,7 @@
 #ifndef SEESAW_DEVICE_CONFIG_H
 #define SEESAW_DEVICE_CONFIG_H
 
-#define PRODUCT_CODE 3957
+#define PRODUCT_CODE 9999
 
 //override default activity led pin
 #define PIN_ACTIVITY_LED 12 // was PB22 now PA12
@@ -161,17 +161,15 @@
 
 //* ============== I2C SLAVE =================== *//
 #define CONFIG_I2C_SLAVE 1
-//override the default pins
+#define CONFIG_I2C_SLAVE_SERCOM SERCOM3
+#define CONFIG_I2C_SLAVE_HANDLER SERCOM3_Handler
+#define CONFIG_I2C_SLAVE_IRQn SERCOM3_IRQn
 #define CONFIG_I2C_SLAVE_PIN_SDA 22
 #define CONFIG_I2C_SLAVE_PIN_SCL 23
-
-//override default address
-#define CONFIG_I2C_SLAVE_ADDR 0x49
-
-//override default mux
-#define CONFIG_I2C_SLAVE_MUX 3
-
-#define CONFIG_I2C_SLAVE_FLOW_CONTROL 1
+#define CONFIG_I2C_SLAVE_MUX 2
+#define CONFIG_I2C_SLAVE_FLOW_CONTROL 0
+#define CONFIG_I2C_SLAVE_FLOW_CONTROL_PIN 0
+#define CONFIG_I2C_SLAVE_ADDR 0x2D
 
 //* ============== SERCOM =================== *//
 #define CONFIG_SERCOM0 0
@@ -205,7 +203,7 @@
 #define CONFIG_USB 1
 
 #define USB_VID 0x0005
-#define USB_PID 0x0007
+#define USB_PID 0x0008
 
 #define USB_PRODUCT "Robotics Masters MM1 HAT"
 
