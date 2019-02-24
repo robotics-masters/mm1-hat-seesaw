@@ -169,7 +169,7 @@
 #define CONFIG_I2C_SLAVE_MUX 2
 #define CONFIG_I2C_SLAVE_FLOW_CONTROL 0
 #define CONFIG_I2C_SLAVE_FLOW_CONTROL_PIN 0
-#define CONFIG_I2C_SLAVE_ADDR 0x2D
+#define CONFIG_I2C_SLAVE_ADDR 0x49
 
 //* ============== SERCOM =================== *//
 #define CONFIG_SERCOM0 0
