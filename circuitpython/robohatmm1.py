@@ -26,19 +26,19 @@ from micropython import const
 __version__ = "0.0.0-auto.0"
 __repo__ = "https://github.com/adafruit/Adafruit_CircuitPython_seesaw.git"
 
-# The ordering here reflects the seesaw firmware pinmap for crickit,
-# not logical ordering of the crickit terminals.
+# The ordering here reflects the seesaw firmware (mm1_hat) pinmap for Robo HAT MM1,
+# not logical ordering of the HAT terminals.
 
-_ROBOMM1_SIGNAL1 = const(34)
-_ROBOMM1_SIGNAL2 = const(35)
-_ROBOMM1_SIGNAL3 = const(40)
-_ROBOMM1_SIGNAL4 = const(41)
-_ROBOMM1_SIGNAL5 = const(15)
-_ROBOMM1_SIGNAL6 = const(18)
-_ROBOMM1_SIGNAL7 = const(54)
-_ROBOMM1_SIGNAL8 = const(55)
-_ROBOMM1_SIGNAL9 = const(2)
-_ROBOMM1_SIGNAL10 = const(3)
+_ROBOMM1_SIGNAL1 = const(34) # PWM
+_ROBOMM1_SIGNAL2 = const(35) # PWM
+_ROBOMM1_SIGNAL3 = const(40) # ADC/PWM
+_ROBOMM1_SIGNAL4 = const(41) # ADC/PWM
+_ROBOMM1_SIGNAL5 = const(15) # PWM
+_ROBOMM1_SIGNAL6 = const(18) # PWM
+_ROBOMM1_SIGNAL7 = const(54) # not used, serial port
+_ROBOMM1_SIGNAL8 = const(55) # not used, serial port
+_ROBOMM1_SIGNAL9 = const(2)  # ADC
+_ROBOMM1_SIGNAL10 = const(3) # ADC
 _ROBOMM1_SIGNAL11 = const(12) # BOOT_LED
 
 _ROBOMM1_SERVO8 = const(17)
@@ -64,7 +64,7 @@ _ROBOMM1_RCH4 = const(7)
 # PA<nn> pins are nn
 # PB<nn> pins are 32+nn
 
-class Crickit_Pinmap:
+class Robohat_Pinmap:
     # seesaw firmware (mm1_hat) analog pin map:
     # analog[0]:34    analog[1]:35    analog[2]: 2    analog[3]: 3
     # analog[4]:40    analog[5]:41    analog[6]:10    analog[7]:11
