@@ -29,8 +29,8 @@ __repo__ = "https://github.com/adafruit/Adafruit_CircuitPython_seesaw.git"
 # The ordering here reflects the seesaw firmware (mm1_hat) pinmap for Robo HAT MM1,
 # not logical ordering of the HAT terminals.
 
-_ROBOMM1_SIGNAL1 = const(34) # PWM
-_ROBOMM1_SIGNAL2 = const(35) # PWM
+_ROBOMM1_SIGNAL1 = const(34) # ADC
+_ROBOMM1_SIGNAL2 = const(35) # ADC
 _ROBOMM1_SIGNAL3 = const(40) # ADC/PWM
 _ROBOMM1_SIGNAL4 = const(41) # ADC/PWM
 _ROBOMM1_SIGNAL5 = const(15) # PWM
@@ -39,12 +39,12 @@ _ROBOMM1_SIGNAL7 = const(54) # not used, serial port
 _ROBOMM1_SIGNAL8 = const(55) # not used, serial port
 _ROBOMM1_SIGNAL9 = const(2)  # ADC
 _ROBOMM1_SIGNAL10 = const(3) # ADC
-_ROBOMM1_SIGNAL11 = const(12) # BOOT_LED
+_ROBOMM1_SIGNAL11 = const(12) # not used, BOOT_LED
 
 _ROBOMM1_SERVO8 = const(17)
 _ROBOMM1_SERVO7 = const(16)
-_ROBOMM1_SERVO6 = const(11)
-_ROBOMM1_SERVO5 = const(10)
+_ROBOMM1_SERVO6 = const(11) # also ADC
+_ROBOMM1_SERVO5 = const(10) # also ADC
 _ROBOMM1_SERVO4 = const(21)
 _ROBOMM1_SERVO3 = const(20)
 _ROBOMM1_SERVO2 = const(43)
