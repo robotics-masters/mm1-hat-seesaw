@@ -29,33 +29,31 @@ __repo__ = "https://github.com/adafruit/Adafruit_CircuitPython_seesaw.git"
 # The ordering here reflects the seesaw firmware pinmap for crickit,
 # not logical ordering of the crickit terminals.
 
-_MM1HAT_SIGNAL1 = const(2)
-_MM1HAT_SIGNAL2 = const(3)
-_MM1HAT_SIGNAL3 = const(40)
-_MM1HAT_SIGNAL4 = const(41)
-_MM1HAT_SIGNAL5 = const(11)
-_CRICKIT_SIGNAL6 = const(10)
-_CRICKIT_SIGNAL7 = const(9)
-_CRICKIT_SIGNAL8 = const(8)
+_ROBOMM1_SIGNAL1 = const(34)
+_ROBOMM1_SIGNAL2 = const(35)
+_ROBOMM1_SIGNAL3 = const(40)
+_ROBOMM1_SIGNAL4 = const(41)
+_ROBOMM1_SIGNAL5 = const(15)
+_ROBOMM1_SIGNAL6 = const(18)
+_ROBOMM1_SIGNAL7 = const(54)
+_ROBOMM1_SIGNAL8 = const(55)
+_ROBOMM1_SIGNAL9 = const(2)
+_ROBOMM1_SIGNAL10 = const(3)
+_ROBOMM1_SIGNAL11 = const(12) # BOOT_LED
 
-_CRICKIT_SERVO4 = const(14)
-_CRICKIT_SERVO3 = const(15)
-_CRICKIT_SERVO2 = const(16)
-_CRICKIT_SERVO1 = const(17)
+_ROBOMM1_SERVO8 = const(17)
+_ROBOMM1_SERVO7 = const(16)
+_ROBOMM1_SERVO6 = const(11)
+_ROBOMM1_SERVO5 = const(10)
+_ROBOMM1_SERVO4 = const(21)
+_ROBOMM1_SERVO3 = const(20)
+_ROBOMM1_SERVO2 = const(43)
+_ROBOMM1_SERVO1 = const(42)
 
-_CRICKIT_MOTOR2B = const(18)
-_CRICKIT_MOTOR2A = const(19)
-_CRICKIT_MOTOR1A = const(22)
-_CRICKIT_MOTOR1B = const(23)
-_CRICKIT_DRIVE4 = const(42)
-_CRICKIT_DRIVE3 = const(43)
-_CRICKIT_DRIVE2 = const(12)
-_CRICKIT_DRIVE1 = const(13)
-
-_CRICKIT_CAPTOUCH1 = const(4)
-_CRICKIT_CAPTOUCH2 = const(5)
-_CRICKIT_CAPTOUCH3 = const(6)
-_CRICKIT_CAPTOUCH4 = const(7)
+_ROBOMM1_RCH1 = const(4)
+_ROBOMM1_RCH2 = const(5)
+_ROBOMM1_RCH3 = const(6)
+_ROBOMM1_RCH4 = const(7)
 
 # seesaw firmware has indexed lists of pins by function.
 # These "pin" numbers map to real PAxx, PBxx pins on the board implementing seesaaw
@@ -74,7 +72,9 @@ class Crickit_Pinmap:
     analog_pins = (_CRICKIT_SIGNAL1, _CRICKIT_SIGNAL2,
                    _CRICKIT_SIGNAL3, _CRICKIT_SIGNAL4,
                    _CRICKIT_SIGNAL5, _CRICKIT_SIGNAL6,
-                   _CRICKIT_SIGNAL7, _CRICKIT_SIGNAL8)
+                   _CRICKIT_SIGNAL7, _CRICKIT_SIGNAL8,
+                   _CRICKIT_SIGNAL9, _CRICKIT_SIGNAL10,
+                   _CRICKIT_SIGNAL11)
 
     pwm_width = 16
 
@@ -90,4 +90,4 @@ class Crickit_Pinmap:
 
     # seesaw firmware touch pin map:
     # touch[0]: 4    touch[1]: 5    touch[2]: 6    touch[3]: 7
-touch_pins = (_CRICKIT_CAPTOUCH1, _CRICKIT_CAPTOUCH2, _CRICKIT_CAPTOUCH3, _CRICKIT_CAPTOUCH4)
+    touch_pins = (_CRICKIT_RCH1, _CRICKIT_RCH2, _CRICKIT_RCH3, _CRICKIT_RCH4)
