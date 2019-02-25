@@ -58,7 +58,7 @@ _ROBOMM1_RCH4 = const(7)
 # seesaw firmware has indexed lists of pins by function.
 # These "pin" numbers map to real PAxx, PBxx pins on the board implementing seesaaw
 # They may or may not match.
-# See seesaw/include/SeesawConfig.h and seesaw/boards/crickit/board_config.h for the pin choices.
+# See seesaw/include/SeesawConfig.h and seesaw/boards/mm1_hat/board_config.h for the pin choices.
 # You must look at both files and combine the defaults in SeesawConfig.h with the
 # overrides in crickit/board_config.h.
 # PA<nn> pins are nn
