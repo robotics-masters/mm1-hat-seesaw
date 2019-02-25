@@ -75,10 +75,10 @@ class Robohat_Pinmap:
     # note:  analog[4:5] swappable with pwm[10:11]
     # note:  analog[6:7] swappable with pwm[4:5]
     # 
-    analog_pins = (_CRICKIT_SIGNAL1, _CRICKIT_SIGNAL2,
-                   _CRICKIT_SIGNAL9, _CRICKIT_SIGNAL10)#,
-                   #_CRICKIT_SIGNAL3, _CRICKIT_SIGNAL4,
-                   #_CRICKIT_SERVO5, _CRICKIT_SERVO6)
+    analog_pins = (_ROBOMM1_SIGNAL1, _ROBOMM1_SIGNAL2,
+                   _ROBOMM1_SIGNAL9, _ROBOMM1_SIGNAL10)#,
+                   #__ROBOMM1_SIGNAL3, _ROBOMM1_SIGNAL4,
+                   #_ROBOMM1_SERVO5, _ROBOMM1_SERVO6)
 
     pwm_width = 16
 
@@ -87,11 +87,11 @@ class Robohat_Pinmap:
     # pwm[6]:16    pwm[7]:17    pwm[8]:15    pwm[9]:18    pwm[10]:40   pwm[11]:41
     # note: pwm[10:11] swappable with analog[4:5]
     #
-    pwm_pins = (_CRICKIT_SERVO1, _CRICKIT_SERVO2, _CRICKIT_SERVO3, _CRICKIT_SERVO4,
-                _CRICKIT_SERVO5, _CRICKIT_SERVO6, _CRICKIT_SERVO7, _CRICKIT_SERVO8,
-                _CRICKIT_SIGNAL5, _CRICKIT_SIGNAL6,
-                _CRICKIT_SIGNAL3, _CRICKIT_SIGNAL4)
+    pwm_pins = (_ROBOMM1_SERVO1, _ROBOMM1_SERVO2, _ROBOMM1_SERVO3, _ROBOMM1_SERVO4,
+                _ROBOMM1_SERVO5, _ROBOMM1_SERVO6, _ROBOMM1_SERVO7, _ROBOMM1_SERVO8,
+                _ROBOMM1_SIGNAL5, _ROBOMM1_SIGNAL6,
+                _ROBOMM1_SIGNAL3, _ROBOMM1_SIGNAL4)
 
     # seesaw firmware touch pin map:
     # touch[0]: 4    touch[1]: 5    touch[2]: 6    touch[3]: 7
-    touch_pins = (_CRICKIT_RCH1, _CRICKIT_RCH2, _CRICKIT_RCH3, _CRICKIT_RCH4)
+    touch_pins = (_ROBOMM1_RCH1, _ROBOMM1_RCH2, _ROBOMM1_RCH3, _ROBOMM1_RCH4)
