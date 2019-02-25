@@ -41,15 +41,15 @@
 
 #define CONFIG_ADC_INPUT_1 1
 #define CONFIG_ADC_INPUT_1_PIN (32 + 3) //PB03 - SIGNAL_02
-#define CONFIG_ADC_INPUT_0_CHANNEL 11
+#define CONFIG_ADC_INPUT_1_CHANNEL 11
 
 #define CONFIG_ADC_INPUT_2 1
 #define CONFIG_ADC_INPUT_2_PIN 2 //PA02 - SIGNAL_09
-#define CONFIG_ADC_INPUT_0_CHANNEL 0
+#define CONFIG_ADC_INPUT_2_CHANNEL 0
 
 #define CONFIG_ADC_INPUT_3 1
 #define CONFIG_ADC_INPUT_3_PIN 3 //PA03 - SIGNAL_10
-#define CONFIG_ADC_INPUT_0_CHANNEL 1
+#define CONFIG_ADC_INPUT_3_CHANNEL 1
 
 //
 //  Some pins support PWM and Analog, but not at the same time.
@@ -57,19 +57,19 @@
 //
 #define CONFIG_ADC_INPUT_4 0 // not used
 //#define CONFIG_ADC_INPUT_4_PIN (32 + 8) //PB08 - SIGNAL_03
-//#define CONFIG_ADC_INPUT_0_CHANNEL 2
+//#define CONFIG_ADC_INPUT_4_CHANNEL 2
 
 #define CONFIG_ADC_INPUT_5 0 // not used
 //#define CONFIG_ADC_INPUT_5_PIN (32 + 9) //PB09 - SIGNAL_04
-//#define CONFIG_ADC_INPUT_0_CHANNEL 3
+//#define CONFIG_ADC_INPUT_5_CHANNEL 3
 
 #define CONFIG_ADC_INPUT_6 0 // not used
-//#define CONFIG_ADC_INPUT_4_PIN (32 + 8) //PA10 - SERV0_05
-//#define CONFIG_ADC_INPUT_0_CHANNEL 18
+//#define CONFIG_ADC_INPUT_6_PIN (32 + 8) //PA10 - SERV0_05
+//#define CONFIG_ADC_INPUT_6_CHANNEL 18
 
 #define CONFIG_ADC_INPUT_7 0 // not used
-//#define CONFIG_ADC_INPUT_4_PIN (32 + 8) //PA11 - SERV0_06
-//#define CONFIG_ADC_INPUT_0_CHANNEL 19
+//#define CONFIG_ADC_INPUT_7_PIN (32 + 8) //PA11 - SERV0_06
+//#define CONFIG_ADC_INPUT_7_CHANNEL 19
 
 //* ============== DAC =================== *//
 #define CONFIG_DAC 0
