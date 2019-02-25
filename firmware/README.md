@@ -16,3 +16,13 @@ make BOARD=roboticsmasters_mm1
 ```
 seesaw/builds
 ```
+<<<<<<< HEAD
+=======
+
+## Convert to UF2
+```
+# For programs with 0x2000 offset (default)
+uf2conv.py -c -o build-circuitplayground_express/firmware.uf2 build-circuitplayground_express/firmware.bin
+
+```
+>>>>>>> 32e0df0df84c75e2cb886ff3f498e108135070e8
