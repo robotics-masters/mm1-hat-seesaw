@@ -25,7 +25,7 @@
 
 Convenience library for using the Adafruit Crickit robotics boards.
 
-* Author(s): Dan Halbert
+* Author(s): wallarug
 
 Implementation Notes
 --------------------
