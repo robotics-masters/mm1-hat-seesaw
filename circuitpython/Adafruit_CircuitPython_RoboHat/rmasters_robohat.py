@@ -145,7 +145,7 @@ class Robohat:
 
     def __init__(self, seesaw):
         self._seesaw = seesaw
-        self._seesaw.pin_mapping = Robothat_Pinmap
+        self._seesaw.pin_mapping = Robohat_Pinmap
         # Associate terminal(s) with certain devices.
         # Used to find existing devices.
         self._devices = dict()
