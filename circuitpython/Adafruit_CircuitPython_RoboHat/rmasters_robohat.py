@@ -1,6 +1,6 @@
 # The MIT License (MIT)
 #
-# Copyright (c) 2018 Dan Halbert for Adafruit Industries
+# Copyright (c) 2019 wallarug for Robotics Masters
 #
 # Permission is hereby granted, free of charge, to any person obtaining a copy
 # of this software and associated documentation files (the "Software"), to deal
@@ -20,10 +20,10 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 # THE SOFTWARE.
 """
-`adafruit_crickit`
+`rmasters_robohat`
 ==========================
 
-Convenience library for using the Adafruit Crickit robotics boards.
+Convenience library for using the Robotics Masters Robo HAT robotics boards.
 
 * Author(s): wallarug
 
@@ -69,31 +69,37 @@ __version__ = "0.0.0-auto.0"
 __repo__ = "https://github.com/adafruit/Adafruit_CircuitPython_Crickit.git"
 
 
-_SERVO1 = const(17)
-_SERVO2 = const(16)
-_SERVO3 = const(15)
-_SERVO4 = const(14)
+_SERVO1 = const(42)
+_SERVO2 = const(43)
+_SERVO3 = const(20)
+_SERVO4 = const(21)
+_SERVO5 = const(10)
+_SERVO6 = const(11)
+_SERVO7 = const(16)
+_SERVO8 = const(17)
 
-_MOTOR1 = (22, 23)
-_MOTOR2 = (19, 18)
-# Order as needed for steppers.
-_MOTOR_STEPPER = _MOTOR1 + _MOTOR2
-
-_DRIVE1 = const(13)
-_DRIVE2 = const(12)
-_DRIVE3 = const(43)
-_DRIVE4 = const(42)
+_SIGNAL1 = const(34) # ADC
+_SIGNAL2 = const(35) # ADC
+_SIGNAL3 = const(40) # ADC/PWM
+_SIGNAL4 = const(41) # ADC/PWM
+_SIGNAL5 = const(15) # PWM
+_SIGNAL6 = const(18) # PWM
+_SIGNAL7 = const(54) # not used, serial port
+_SIGNAL8 = const(55) # not used, serial port
+_SIGNAL9 = const(2)  # ADC
+_SIGNAL10 = const(3) # ADC
+_SIGNAL11 = const(12) # not used, BOOT_LED
 
 # Order as needed for steppers.
 _DRIVE_STEPPER = (_DRIVE1, _DRIVE3, _DRIVE2, _DRIVE4)
 
 
-_TOUCH1 = const(4)
-_TOUCH2 = const(5)
-_TOUCH3 = const(6)
-_TOUCH4 = const(7)
+_RCH1 = const(4)
+_RCH2 = const(5)
+_RCH3 = const(6)
+_RCH4 = const(7)
 
-_NEOPIXEL = const(20)
+_NEOPIXEL = const(19)
 
 #pylint: disable=too-few-public-methods
 class CrickitTouchIn:
@@ -141,22 +147,17 @@ class Crickit:
       time.sleep(1)
     """
 
-    SIGNAL1 = 2
-    """Signal 1 terminal"""
-    SIGNAL2 = 3
-    """Signal 2 terminal"""
-    SIGNAL3 = 40
-    """Signal 3 terminal"""
-    SIGNAL4 = 41
-    """Signal 4 terminal"""
-    SIGNAL5 = 11
-    """Signal 5 terminal"""
-    SIGNAL6 = 10
-    """Signal 6 terminal"""
-    SIGNAL7 = 9
-    """Signal 7 terminal"""
-    SIGNAL8 = 8
-    """Signal 8 terminal"""
+    SIGNAL1 = 34 # ADC
+    SIGNAL2 = 35 # ADC
+    SIGNAL3 = 40 # ADC/PWM
+    SIGNAL4 = 41 # ADC/PWM
+    SIGNAL5 = 15 # PWM
+    SIGNAL6 = 18 # PWM
+    SIGNAL7 = 54 # not used, serial port
+    SIGNAL8 = 55 # not used, serial port
+    SIGNAL9 = 2  # ADC
+    SIGNAL10 = 3 # ADC
+    SIGNAL11 = 12 # not used, BOOTLED
 
     def __init__(self, seesaw):
         self._seesaw = seesaw
@@ -203,6 +204,27 @@ class Crickit:
         return self._servo(_SERVO4, Servo)
 
     @property
+    def servo_5(self):
+        """``adafruit_motor.servo.Servo`` object on Servo 5 terminal"""
+        return self._servo(_SERVO5, Servo)
+
+    @property
+    def servo_6(self):
+        """``adafruit_motor.servo.Servo`` object on Servo 6 terminal"""
+        return self._servo(_SERVO6, Servo)
+
+    @property
+    def servo_7(self):
+        """``adafruit_motor.servo.Servo`` object on Servo 7 terminal"""
+        return self._servo(_SERVO7, Servo)
+
+    @property
+    def servo_8(self):
+        """``adafruit_motor.servo.Servo`` object on Servo 8 terminal"""
+        return self._servo(_SERVO8, Servo)
+    
+
+    @property
     def continuous_servo_1(self):
         """``adafruit_motor.servo.ContinuousServo`` object on Servo 1 terminal"""
         return self._servo(_SERVO1, ContinuousServo)
@@ -221,6 +243,26 @@ class Crickit:
     def continuous_servo_4(self):
         """``adafruit_motor.servo.ContinuousServo`` object on Servo 4 terminal"""
         return self._servo(_SERVO4, ContinuousServo)
+
+    @property
+    def continuous_servo_5(self):
+        """``adafruit_motor.servo.ContinuousServo`` object on Servo 5 terminal"""
+        return self._servo(_SERVO5, ContinuousServo)
+
+    @property
+    def continuous_servo_6(self):
+       """``adafruit_motor.servo.ContinuousServo`` object on Servo 6 terminal"""
+        return self._servo(_SERVO6, ContinuousServo)
+
+    @property
+    def continuous_servo_7(self):
+        """``adafruit_motor.servo.ContinuousServo`` object on Servo 7 terminal"""
+        return self._servo(_SERVO7, ContinuousServo)
+
+    @property
+    def continuous_servo_8(self):
+        """``adafruit_motor.servo.ContinuousServo`` object on Servo 8 terminal"""
+        return self._servo(_SERVO8, ContinuousServo)
 
     def _servo(self, terminal, servo_class):
         device = self._devices.get(terminal, None)
