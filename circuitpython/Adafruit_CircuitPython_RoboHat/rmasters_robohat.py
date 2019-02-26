@@ -235,7 +235,7 @@ class Robohat:
 
     @property
     def continuous_servo_6(self):
-       """``adafruit_motor.servo.ContinuousServo`` object on Servo 6 terminal"""
+        """``adafruit_motor.servo.ContinuousServo`` object on Servo 6 terminal"""
         return self._servo(_SERVO6, ContinuousServo)
 
     @property
