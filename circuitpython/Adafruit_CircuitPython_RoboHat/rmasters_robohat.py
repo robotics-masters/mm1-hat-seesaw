@@ -78,22 +78,6 @@ _SERVO6 = const(11)
 _SERVO7 = const(16)
 _SERVO8 = const(17)
 
-_SIGNAL1 = const(34) # ADC
-_SIGNAL2 = const(35) # ADC
-_SIGNAL3 = const(40) # ADC/PWM
-_SIGNAL4 = const(41) # ADC/PWM
-_SIGNAL5 = const(15) # PWM
-_SIGNAL6 = const(18) # PWM
-_SIGNAL7 = const(54) # not used, serial port
-_SIGNAL8 = const(55) # not used, serial port
-_SIGNAL9 = const(2)  # ADC
-_SIGNAL10 = const(3) # ADC
-_SIGNAL11 = const(12) # not used, BOOT_LED
-
-# Order as needed for steppers.
-_DRIVE_STEPPER = (_DRIVE1, _DRIVE3, _DRIVE2, _DRIVE4)
-
-
 _RCH1 = const(4)
 _RCH2 = const(5)
 _RCH3 = const(6)
@@ -102,7 +86,7 @@ _RCH4 = const(7)
 _NEOPIXEL = const(19)
 
 #pylint: disable=too-few-public-methods
-class CrickitTouchIn:
+class RobohatTouchIn:
     """Imitate touchio.TouchIn."""
     def __init__(self, seesaw, pin):
         self._seesaw = seesaw
@@ -121,7 +105,7 @@ class CrickitTouchIn:
 
 
 #pylint: disable=too-many-public-methods
-class Crickit:
+class Robohat:
     """Represents a Crickit board. Provides a number of devices available via properties, such as
     ``servo_1``. Devices are created on demand the first time they are referenced.
 
@@ -277,22 +261,22 @@ class Crickit:
     @property
     def touch_1(self):
         """``adafruit_crickit.CrickitTouchIn`` object on Touch 1 terminal"""
-        return self._touch(_TOUCH1)
+        return self._touch(_RCH1)
 
     @property
     def touch_2(self):
         """``adafruit_crickit.CrickitTouchIn`` object on Touch 2 terminal"""
-        return self._touch(_TOUCH2)
+        return self._touch(_RCH2)
 
     @property
     def touch_3(self):
         """``adafruit_crickit.CrickitTouchIn`` object on Touch 3 terminal"""
-        return self._touch(_TOUCH3)
+        return self._touch(_RCH3)
 
     @property
     def touch_4(self):
         """``adafruit_crickit.CrickitTouchIn`` object on Touch 4 terminal"""
-        return self._touch(_TOUCH4)
+        return self._touch(_RCH4)
 
     def _touch(self, terminal):
         touch_in = self._devices.get(terminal, None)
