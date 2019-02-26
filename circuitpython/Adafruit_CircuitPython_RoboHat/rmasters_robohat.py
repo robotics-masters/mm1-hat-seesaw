@@ -59,7 +59,7 @@ except ValueError:
     pass
 
 from adafruit_seesaw.seesaw import Seesaw
-from adafruit_seesaw.crickit import Crickit_Pinmap
+from adafruit_seesaw.robohat import Robohat_Pinmap
 from adafruit_seesaw.pwmout import PWMOut
 from adafruit_motor.servo import Servo, ContinuousServo
 from adafruit_motor.motor import DCMotor
@@ -145,7 +145,7 @@ class Robohat:
 
     def __init__(self, seesaw):
         self._seesaw = seesaw
-        self._seesaw.pin_mapping = Crickit_Pinmap
+        self._seesaw.pin_mapping = Robothat_Pinmap
         # Associate terminal(s) with certain devices.
         # Used to find existing devices.
         self._devices = dict()
@@ -281,7 +281,7 @@ class Robohat:
     def _touch(self, terminal):
         touch_in = self._devices.get(terminal, None)
         if not touch_in:
-            touch_in = CrickitTouchIn(self._seesaw, terminal)
+            touch_in = RobohatTouchIn(self._seesaw, terminal)
             self._devices[terminal] = touch_in
         return touch_in
 
@@ -324,9 +324,9 @@ class Robohat:
         """Reset the whole Crickit board."""
         self._seesaw.sw_reset()
 
-crickit = None # pylint: disable=invalid-name
+robohat = None # pylint: disable=invalid-name
 """A singleton instance to control a single Crickit board, controlled by the default I2C pins."""
 
 # Sphinx's board is missing real pins so skip the constructor in that case.
 if "SCL" in dir(board):
-    crickit = Crickit(Seesaw(busio.I2C(board.SCL, board.SDA))) # pylint: disable=invalid-name
+    robohat = Robohat(Seesaw(busio.I2C(board.SCL, board.SDA))) # pylint: disable=invalid-name
