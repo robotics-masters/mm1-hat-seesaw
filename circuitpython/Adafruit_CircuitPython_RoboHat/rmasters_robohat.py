@@ -59,7 +59,7 @@ except ValueError:
     pass
 
 from adafruit_seesaw.seesaw import Seesaw
-from adafruit_seesaw.robohat import Robohat_Pinmap
+from adafruit_seesaw.robohat import MM1_Pinmap
 from adafruit_seesaw.pwmout import PWMOut
 from adafruit_motor.servo import Servo, ContinuousServo
 from adafruit_motor.motor import DCMotor
@@ -86,7 +86,7 @@ _RCH4 = const(7)
 _NEOPIXEL = const(19)
 
 #pylint: disable=too-few-public-methods
-class RobohatTouchIn:
+class MM1TouchIn:
     """Imitate touchio.TouchIn."""
     def __init__(self, seesaw, pin):
         self._seesaw = seesaw
@@ -105,8 +105,8 @@ class RobohatTouchIn:
 
 
 #pylint: disable=too-many-public-methods
-class Robohat:
-    """Represents a Crickit board. Provides a number of devices available via properties, such as
+class MM1:
+    """Represents a Robo HAT MM1 board. Provides a number of devices available via properties, such as
     ``servo_1``. Devices are created on demand the first time they are referenced.
 
     It's fine to refer a device multiple times via its property, but it's faster and results
@@ -145,7 +145,7 @@ class Robohat:
 
     def __init__(self, seesaw):
         self._seesaw = seesaw
-        self._seesaw.pin_mapping = Robohat_Pinmap
+        self._seesaw.pin_mapping = MM1_Pinmap
         # Associate terminal(s) with certain devices.
         # Used to find existing devices.
         self._devices = dict()
