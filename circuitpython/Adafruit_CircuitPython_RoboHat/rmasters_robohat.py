@@ -105,7 +105,7 @@ class MM1TouchIn:
 
 
 #pylint: disable=too-many-public-methods
-class MM1:
+class RoboMM1:
     """Represents a Robo HAT MM1 board. Provides a number of devices available via properties, such as
     ``servo_1``. Devices are created on demand the first time they are referenced.
 
@@ -281,7 +281,7 @@ class MM1:
     def _touch(self, terminal):
         touch_in = self._devices.get(terminal, None)
         if not touch_in:
-            touch_in = RobohatTouchIn(self._seesaw, terminal)
+            touch_in = MM1TouchIn(self._seesaw, terminal)
             self._devices[terminal] = touch_in
         return touch_in
 
@@ -329,4 +329,4 @@ robohat = None # pylint: disable=invalid-name
 
 # Sphinx's board is missing real pins so skip the constructor in that case.
 if "SCL" in dir(board):
-    robohat = Robohat(Seesaw(busio.I2C(board.SCL, board.SDA))) # pylint: disable=invalid-name
+    robohat = RoboMM1(Seesaw(busio.I2C(board.SCL, board.SDA))) # pylint: disable=invalid-name
