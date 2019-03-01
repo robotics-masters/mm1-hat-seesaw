@@ -63,11 +63,11 @@ _MM1_RCH4 = const(7)
 # See seesaw/include/SeesawConfig.h and seesaw/boards/mm1_hat/board_config.h for the pin choices.
 
 # You must look at both files and combine the defaults in SeesawConfig.h with the
-# overrides in crickit/board_config.h.
+# overrides in mm1_hat/board_config.h.
 # PA<nn> pins are nn
 # PB<nn> pins are 32+nn
 
-class Robohat_Pinmap:
+class MM1_Pinmap:
     # seesaw firmware (mm1_hat) analog pin map:
     # analog[0]:34    analog[1]:35    analog[2]: 2    analog[3]: 3
     # analog[4]:40    analog[5]:41    analog[6]:10    analog[7]:11
@@ -77,7 +77,7 @@ class Robohat_Pinmap:
     # 
     analog_pins = (_MM1_SIGNAL1, _MM1_SIGNAL2,
                    _MM1_SIGNAL9, _MM1_SIGNAL10)#,
-                   #__MM1_SIGNAL3, _MM1_SIGNAL4,
+                   #_MM1_SIGNAL3, _MM1_SIGNAL4,
                    #_MM1_SERVO5, _MM1_SERVO6)
 
     pwm_width = 16
