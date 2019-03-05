@@ -57,20 +57,20 @@
 //  IMPORTANT:  Disable/Comment relevant PWM pins if use.
 //
 #define CONFIG_ADC_INPUT_4 0 // not used
-//#define CONFIG_ADC_INPUT_4_PIN (32 + 8) //PB08 - SIGNAL_03
-//#define CONFIG_ADC_INPUT_4_CHANNEL 2
+//#define CONFIG_ADC_INPUT_4_PIN 10 	  //PA10 - SERV0_05
+//#define CONFIG_ADC_INPUT_4_CHANNEL 18
 
 #define CONFIG_ADC_INPUT_5 0 // not used
-//#define CONFIG_ADC_INPUT_5_PIN (32 + 9) //PB09 - SIGNAL_04
-//#define CONFIG_ADC_INPUT_5_CHANNEL 3
+//#define CONFIG_ADC_INPUT_5_PIN 11 	  //PA11 - SERV0_06
+//#define CONFIG_ADC_INPUT_5_CHANNEL 19
 
 #define CONFIG_ADC_INPUT_6 0 // not used
-//#define CONFIG_ADC_INPUT_6_PIN (32 + 8) //PA10 - SERV0_05
-//#define CONFIG_ADC_INPUT_6_CHANNEL 18
+//#define CONFIG_ADC_INPUT_6_PIN (32 + 8) //PB08 - SIGNAL_03
+//#define CONFIG_ADC_INPUT_6_CHANNEL 2
 
 #define CONFIG_ADC_INPUT_7 0 // not used
-//#define CONFIG_ADC_INPUT_7_PIN (32 + 8) //PA11 - SERV0_06
-//#define CONFIG_ADC_INPUT_7_CHANNEL 19
+//#define CONFIG_ADC_INPUT_7_PIN (32 + 9) //PB09 - SIGNAL_04
+//#define CONFIG_ADC_INPUT_7_CHANNEL 3
 
 //* ============== DAC =================== *//
 #define CONFIG_DAC 0
