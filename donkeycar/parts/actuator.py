@@ -33,15 +33,16 @@ class MM1HAT:
     """
     PWM motor controler using Robo MM1 HAT boards.
     """
-    def __init__(self, channel, frequency=50):
+    def __init__(self, pin, frequency=50):
         from rmasters_robohat import robohat
         # Initialise the Robo HAT MM1 using the default address (0x49).
-        self.pwm = robohat
-        self.channel = channel
+        self.pwm = robohat._servo_normal(pin, frequency)
+        self.channel = pin
 
     def set_pulse(self, pulse):
         try:
-            self.pwm.set_pwm(self.channel, 0, pulse)
+            print("pulse: ", pulse)
+            #self.pwm.set_pwm(self.channel, 0, pulse)
         except OSError as err:
             print("Unexpected issue setting PWM (check wires to motor board): {0}".format(err))
 
