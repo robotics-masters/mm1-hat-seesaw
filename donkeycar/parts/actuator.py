@@ -28,6 +28,25 @@ class PCA9685:
 
     def run(self, pulse):
         self.set_pulse(pulse)
+        
+class MM1HAT:
+    """
+    PWM motor controler using Robo MM1 HAT boards.
+    """
+    def __init__(self, channel, frequency=50):
+        from rmasters_robohat import robohat
+        # Initialise the Robo HAT MM1 using the default address (0x49).
+        self.pwm = robohat
+        self.channel = channel
+
+    def set_pulse(self, pulse):
+        try:
+            self.pwm.set_pwm(self.channel, 0, pulse)
+        except OSError as err:
+            print("Unexpected issue setting PWM (check wires to motor board): {0}".format(err))
+
+    def run(self, pulse):
+        self.set_pulse(pulse)
 
 
 class PWMSteering:

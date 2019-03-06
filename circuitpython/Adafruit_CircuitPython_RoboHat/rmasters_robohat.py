@@ -256,6 +256,15 @@ class RoboMM1:
             device = servo_class(pwm)
             self._devices[terminal] = device
         return device
+        
+    def _servo_normal(self, terminal, frequency=50):
+        device = self._devices.get(terminal, None)
+        if not isinstance(device, Servo):
+            pwm = PWMOut(self._seesaw, terminal)
+            pwm.frequency = 50
+            device = Servo(pwm)
+            self._devices[terminal] = device
+            
 
 
     @property
