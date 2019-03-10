@@ -1,6 +1,8 @@
 # Robo HAT MM1 - SeeSaw Repository.
-This repository contains Examples and firmware files for Robo HAT MM1 for compatibility with SeeSaw.  [SeeSaw](https://raw.githubusercontent.com/adafruit/seesaw) is a GitHub Library currently maintained by Adafruit.
 
+## Introduction
+=======
+This repository contains Examples and firmware files for Robo HAT MM1 for compatibility with SeeSaw.  [SeeSaw](https://github.com/adafruit/seesaw) is a GitHub Library currently maintained by Adafruit.
 ## Introduction
 
 Seesaw is an open source microcontroller friend for other chips. It provides a
@@ -13,9 +15,8 @@ variety of capabilities such as UART, ADC, DAC, extra GPIO, etc. to chips that d
 
 ## Build SeeSaw
 
-Please see the mm1-hat-seesaw/firmware folder for further instructions.
+Please see the [mm1-hat-seesaw/firmware](https://github.com/robotics-masters/mm1-hat-seesaw/tree/master/firmware) folder for further instructions.
 
-## Install SeeSaw for Python3
+## Install SeeSaw for Python3.x
 
-Please see the mm1-hat-seesaw/circuitpython folder for further instructions.
-
+Please see the [mm1-hat-seesaw/circuitpython](https://github.com/robotics-masters/mm1-hat-seesaw/tree/master/circuitpython) folder for further instructions.
