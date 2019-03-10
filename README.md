@@ -13,9 +13,8 @@ variety of capabilities such as UART, ADC, DAC, extra GPIO, etc. to chips that d
 
 ## Build SeeSaw
 
-Please see the mm1-hat-seesaw/firmware folder for further instructions.
+Please see the [mm1-hat-seesaw/firmware](https://github.com/robotics-masters/mm1-hat-seesaw/tree/master/firmware) folder for further instructions.
 
-## Install SeeSaw for Python3
+## Install SeeSaw for Python3.x
 
-Please see the mm1-hat-seesaw/circuitpython folder for further instructions.
-
+Please see the [mm1-hat-seesaw/circuitpython](https://github.com/robotics-masters/mm1-hat-seesaw/tree/master/circuitpython) folder for further instructions.
