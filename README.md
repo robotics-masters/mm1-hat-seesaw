@@ -1,5 +1,5 @@
 # Robo HAT MM1 - SeeSaw Repository.
-This repository contains Examples and firmware files for Robo HAT MM1 for compatibility with SeeSaw.  [SeeSaw](https://raw.githubusercontent.com/adafruit/seesaw) is a GitHub Library currently maintained by Adafruit.
+This repository contains Examples and firmware files for Robo HAT MM1 for compatibility with SeeSaw.  [SeeSaw](https://github.com/adafruit/seesaw) is a GitHub Library currently maintained by Adafruit.
 
 ## Introduction
 
