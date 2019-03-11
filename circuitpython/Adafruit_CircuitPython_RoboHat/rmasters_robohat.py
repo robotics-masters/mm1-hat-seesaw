@@ -78,6 +78,9 @@ _SERVO6 = const(11)
 _SERVO7 = const(16)
 _SERVO8 = const(17)
 
+_servoPins = [_SERVO1, _SERVO2, _SERVO3, _SERVO4,
+           _SERVO5, _SERVO6, _SERVO7, _SERVO8]
+
 _RCH1 = const(4)
 _RCH2 = const(5)
 _RCH3 = const(6)
@@ -257,13 +260,14 @@ class RoboMM1:
             self._devices[terminal] = device
         return device
         
-    def _servo_normal(self, terminal, frequency=50):
+    def _pulseout(self, terminal):
         device = self._devices.get(terminal, None)
         if not isinstance(device, Servo):
             pwm = PWMOut(self._seesaw, terminal)
             pwm.frequency = 50
-            device = Servo(pwm)
+            device = pwm
             self._devices[terminal] = device
+        return device
             
 
 
