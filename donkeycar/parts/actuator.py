@@ -34,7 +34,7 @@ class ROBOHATMM1:
     PWM motor controler using Robo MM1 HAT boards.
     """
     def __init__(self, channel, frequency=50):
-        from rmasters_robohat import robohat
+        from rm_robohat import robohat
         # Initialise the Robo HAT MM1 using the default address (0x49).
         self.pwm = robohat._pulseout(channel)
         self.pwm.frequency = frequency
