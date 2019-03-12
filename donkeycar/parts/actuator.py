@@ -36,14 +36,13 @@ class ROBOHATMM1:
     def __init__(self, channel, frequency=50):
         from rm_robohat import robohat
         # Initialise the Robo HAT MM1 using the default address (0x49).
-        self.pwm = robohat._pulseout(channel)
-        self.pwm.frequency = frequency
+        self.pwm = robohat.anyservo(channel)
         self.channel = channel
 
     def set_pulse(self, pulse):
         try:
             print("pulse: ", pulse)
-            self.pwm.duty_cycle = pulse
+            self.pwm.angle = pulse
         except OSError as err:
             print("Unexpected issue setting PWM (check wires to motor board): {0}".format(err))
 

@@ -251,6 +251,10 @@ class RoboMM1:
         """``adafruit_motor.servo.ContinuousServo`` object on Servo 8 terminal"""
         return self._servo(_SERVO8, ContinuousServo)
 
+    @property
+    def anyservo(self, terminal):
+        return self._servo(terminal, Servo)
+    
     def _servo(self, terminal, servo_class):
         device = self._devices.get(terminal, None)
         if not isinstance(device, servo_class):
