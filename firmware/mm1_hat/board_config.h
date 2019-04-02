@@ -199,6 +199,27 @@
 //#define CONFIG_I2C_SLAVE_FLOW_CONTROL_PIN 23
 #define CONFIG_I2C_SLAVE_ADDR 0x49
 
+//* ============== SPI SLAVE =================== *//
+// (disabled by default)
+#define CONFIG_SPI_SLAVE 0
+//#define CONFIG_SPI_SLAVE_SERCOM SERCOM3
+//#define CONFIG_SPI_SLAVE_HANDLER SERCOM3_Handler
+//#define CONFIG_SPI_SLAVE_IRQn SERCOM3_IRQn
+//#define CONFIG_SPI_SLAVE_PIN_MOSI 18
+//#define CONFIG_SPI_SLAVE_PIN_MISO 16
+//#define CONFIG_SPI_SLAVE_PIN_SCK 19
+//#define CONFIG_SPI_SLAVE_PIN_SS 17
+//#define CONFIG_SPI_SLAVE_PAD_TX SPI_PAD_0_SCK_3
+//#define CONFIG_SPI_SLAVE_PAD_RX SERCOM_RX_PAD_2
+//#define CONFIG_SPI_SLAVE_CHAR_SIZE SPI_CHAR_SIZE_8_BITS
+//#define CONFIG_SPI_SLAVE_DATA_ORDER MSB_FIRST
+//#define CONFIG_SPI_SLAVE_DMA_CHANNEL_RX 0
+//#define CONFIG_SPI_SLAVE_DMA_CHANNEL_TX 1
+//#define CONFIG_SPI_SLAVE_DMA_TRIGGER_RX 0
+//#define CONFIG_SPI_SLAVE_DMA_TRIGGER_TX 0
+//#define CONFIG_SPI_SLAVE_MODE SERCOM_SPI_MODE_3
+
+
 //* ============== SERCOM =================== *//
 #define CONFIG_SERCOM0 0
 #define CONFIG_SERCOM1 0
@@ -218,15 +239,12 @@
 #define CONFIG_SERCOM_UART_MUX_TX 3
 #define CONFIG_SERCOM_UART_MUX_RX 3
 
-// SPI External
-
 
 //* ============== DAP =================== *//
 #define CONFIG_DAP 0
 
 //* =========== NEOPIXEL ================ *//
 #define CONFIG_NEOPIXEL 1
-
 #define CONFIG_NEOPIXEL_BUF_MAX 1024
 
 //* =========== POWER SENSE ================ *//
