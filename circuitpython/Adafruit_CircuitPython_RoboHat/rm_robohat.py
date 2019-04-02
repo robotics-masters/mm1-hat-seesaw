@@ -133,18 +133,20 @@ class RoboMM1:
       servo_1.angle = 90
       time.sleep(1)
     """
-
-    SIGNAL1 = 34 # ADC
-    SIGNAL2 = 35 # ADC
-    SIGNAL3 = 40 # ADC/PWM
-    SIGNAL4 = 41 # ADC/PWM
-    SIGNAL5 = 15 # PWM
-    SIGNAL6 = 18 # PWM
-    SIGNAL7 = 54 # not used, serial port
-    SIGNAL8 = 55 # not used, serial port
-    SIGNAL9 = 2  # ADC
-    SIGNAL10 = 3 # ADC
-    SIGNAL11 = 12 # not used, BOOTLED
+    SIGNAL0 = 55 # (RX to RPI_TX)
+    SIGNAL1 = 54 # (TX to RPI_RX)
+    SIGNAL2 = 48 # ADC (GPS_RX)
+    SIGNAL3 = 47 # ADC (GPS_TX)
+    SIGNAL4 = 0 # (GPS_SDA)
+    SIGNAL5 = 1 # (GPS_SCL)
+    SIGNAL6 = 2 # (POWER_ENABLE)
+    SIGNAL7 = 3 # (BUTTON)
+    SIGNAL8 = 20 # (NEOPIXEL) 
+    SIGNAL9 =  43 # PWM (SPI_SCK)
+    SIGNAL10 = 41 # PWM (SPI_SS)
+    SIGNAL11 = 42 # PWM (SPI_MOSI)
+    SIGNAL12 = 40 # PWM (SPI_MISO)
+    SIGNAL13 = 21 # BOOT_LED
 
     def __init__(self, seesaw):
         self._seesaw = seesaw

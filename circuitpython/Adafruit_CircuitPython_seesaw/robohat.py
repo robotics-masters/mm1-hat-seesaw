@@ -30,31 +30,34 @@ __repo__ = "https://github.com/adafruit/Adafruit_CircuitPython_seesaw.git"
 # The ordering here reflects the seesaw firmware (mm1_hat) pinmap for Robo HAT MM1,
 # not logical ordering of the HAT terminals.
 
-_MM1_SIGNAL1 = const(34) # ADC
-_MM1_SIGNAL2 = const(35) # ADC
-_MM1_SIGNAL3 = const(40) # ADC/PWM
-_MM1_SIGNAL4 = const(41) # ADC/PWM
-_MM1_SIGNAL5 = const(15) # PWM
-_MM1_SIGNAL6 = const(18) # PWM
-_MM1_SIGNAL7 = const(54) # not used, serial port
-_MM1_SIGNAL8 = const(55) # not used, serial port
-_MM1_SIGNAL9 = const(2)  # ADC
-_MM1_SIGNAL10 = const(3) # ADC
-_MM1_SIGNAL11 = const(12) # not used, BOOT_LED
+_MM1_SIGNAL0 = const(55)
+_MM1_SIGNAL1 = const(54)
+_MM1_SIGNAL2 = const(48)
+_MM1_SIGNAL3 = const(47)
+_MM1_SIGNAL4 = const(0)
+_MM1_SIGNAL5 = const(1)
+_MM1_SIGNAL6 = const(2)
+_MM1_SIGNAL7 = const(3)
+_MM1_SIGNAL8 = const(20)
+_MM1_SIGNAL9 = const(43)
+_MM1_SIGNAL10 = const(41)
+_MM1_SIGNAL11 = const(42)
+_MM1_SIGNAL12 = const(40)
+_MM1_SIGNAL13 = const(21)
 
-_MM1_SERVO8 = const(17)
-_MM1_SERVO7 = const(16)
-_MM1_SERVO6 = const(11) # also ADC
-_MM1_SERVO5 = const(10) # also ADC
-_MM1_SERVO4 = const(21)
-_MM1_SERVO3 = const(20)
-_MM1_SERVO2 = const(43)
-_MM1_SERVO1 = const(42)
+_MM1_SERVO8 = const(8)
+_MM1_SERVO7 = const(9)
+_MM1_SERVO6 = const(10)
+_MM1_SERVO5 = const(11)
+_MM1_SERVO4 = const(19)
+_MM1_SERVO3 = const(18)
+_MM1_SERVO2 = const(17)
+_MM1_SERVO1 = const(16)
 
-_MM1_RCH1 = const(4)
-_MM1_RCH2 = const(5)
-_MM1_RCH3 = const(6)
-_MM1_RCH4 = const(7)
+_MM1_RCH1 = const(7)
+_MM1_RCH2 = const(6)
+_MM1_RCH3 = const(5)
+_MM1_RCH4 = const(4)
 
 
 # seesaw firmware has indexed lists of pins by function.
@@ -69,29 +72,21 @@ _MM1_RCH4 = const(7)
 
 class MM1_Pinmap:
     # seesaw firmware (mm1_hat) analog pin map:
-    # analog[0]:34    analog[1]:35    analog[2]: 2    analog[3]: 3
-    # analog[4]:40    analog[5]:41    analog[6]:10    analog[7]:11
-    # note:  analog[4:7] not enabled by default.
-    # note:  analog[4:5] swappable with pwm[10:11]
-    # note:  analog[6:7] swappable with pwm[4:5]
+    # analog[0]:47    analog[1]:48    analog[2]:     analog[3]: 
+    # analog[4]:    analog[5]:    analog[6]:    analog[7]:
     # 
-    analog_pins = (_MM1_SIGNAL1, _MM1_SIGNAL2,
-                   _MM1_SIGNAL9, _MM1_SIGNAL10)#,
-                   #_MM1_SIGNAL3, _MM1_SIGNAL4,
-                   #_MM1_SERVO5, _MM1_SERVO6)
+    analog_pins = (_MM1_SIGNAL3, _MM1_SIGNAL2)
 
     pwm_width = 16
 
     # seesaw firmware (mm1_hat) pwm pin map:
-    # pwm[0]:42    pwm[1]:43    pwm[2]:20    pwm[3]:21    pwm[4]:10    pwm[5]:11
-    # pwm[6]:16    pwm[7]:17    pwm[8]:15    pwm[9]:18    pwm[10]:40   pwm[11]:41
-    # note: pwm[10:11] swappable with analog[4:5]
+    # pwm[0]:    pwm[1]:    pwm[2]:    pwm[3]:    pwm[4]:    pwm[5]:
+    # pwm[6]:    pwm[7]:    pwm[8]:    pwm[9]:    pwm[10]:   pwm[11]:
     #
     pwm_pins = (_MM1_SERVO1, _MM1_SERVO2, _MM1_SERVO3, _MM1_SERVO4,
                 _MM1_SERVO5, _MM1_SERVO6, _MM1_SERVO7, _MM1_SERVO8,
-                _MM1_SIGNAL5, _MM1_SIGNAL6,
-                _MM1_SIGNAL3, _MM1_SIGNAL4)
+                _MM1_SIGNAL12, _MM1_SIGNAL10, _MM1_SIGNAL11, _MM1_SIGNAL12)
 
     # seesaw firmware touch pin map:
-    # touch[0]: 4    touch[1]: 5    touch[2]: 6    touch[3]: 7
+    # touch[0]: 7    touch[1]: 6    touch[2]: 5    touch[3]: 4
     touch_pins = (_MM1_RCH1, _MM1_RCH2, _MM1_RCH3, _MM1_RCH4)
