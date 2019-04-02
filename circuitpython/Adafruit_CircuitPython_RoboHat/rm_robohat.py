@@ -69,24 +69,24 @@ __version__ = "0.0.0-auto.0"
 __repo__ = "https://github.com/adafruit/Adafruit_CircuitPython_Crickit.git"
 
 
-_SERVO1 = const(42)
-_SERVO2 = const(43)
-_SERVO3 = const(20)
-_SERVO4 = const(21)
-_SERVO5 = const(10)
-_SERVO6 = const(11)
-_SERVO7 = const(16)
-_SERVO8 = const(17)
+_SERVO1 = const(16)
+_SERVO2 = const(17)
+_SERVO3 = const(18)
+_SERVO4 = const(19)
+_SERVO5 = const(11)
+_SERVO6 = const(10)
+_SERVO7 = const(9)
+_SERVO8 = const(8)
 
 _servoPins = [_SERVO1, _SERVO2, _SERVO3, _SERVO4,
            _SERVO5, _SERVO6, _SERVO7, _SERVO8]
 
-_RCH1 = const(4)
-_RCH2 = const(5)
-_RCH3 = const(6)
-_RCH4 = const(7)
+_RCH1 = const(7)
+_RCH2 = const(6)
+_RCH3 = const(5)
+_RCH4 = const(4)
 
-_NEOPIXEL = const(19)
+_NEOPIXEL = const(20)
 
 #pylint: disable=too-few-public-methods
 class MM1TouchIn:
