@@ -37,40 +37,40 @@
 
 //we will override some of the default ADC pins for this board
 #define CONFIG_ADC_INPUT_0 1
-#define CONFIG_ADC_INPUT_0_PIN (32 + 2) //PB02 - GPS_TX
-#define CONFIG_ADC_INPUT_0_CHANNEL 10
+#define CONFIG_ADC_INPUT_0_PIN 7	//PA07 - RCH_1
+#define CONFIG_ADC_INPUT_0_CHANNEL 7
 
 #define CONFIG_ADC_INPUT_1 1
-#define CONFIG_ADC_INPUT_1_PIN (32 + 3) //PB03 - GPS_RX
-#define CONFIG_ADC_INPUT_1_CHANNEL 11
+#define CONFIG_ADC_INPUT_1_PIN 6 	//PA06 - RCH_2
+#define CONFIG_ADC_INPUT_1_CHANNEL 6
 
 #define CONFIG_ADC_INPUT_2 1
-#define CONFIG_ADC_INPUT_2_PIN 2 //PA02 - POWER_ENABLE
-#define CONFIG_ADC_INPUT_2_CHANNEL 0
+#define CONFIG_ADC_INPUT_2_PIN 5	//PA05 - RCH_3
+#define CONFIG_ADC_INPUT_2_CHANNEL 5
 
 #define CONFIG_ADC_INPUT_3 1
-#define CONFIG_ADC_INPUT_3_PIN 3 //PA03 - BUTTON
-#define CONFIG_ADC_INPUT_3_CHANNEL 1
+#define CONFIG_ADC_INPUT_3_PIN 4	//PA04 - RCH_4
+#define CONFIG_ADC_INPUT_3_CHANNEL 4
 
 //
 //  Some pins support PWM and Analog, but not at the same time.
 //  IMPORTANT:  Disable/Comment relevant PWM pins if use.
 //
 #define CONFIG_ADC_INPUT_4 0 // not used
-//#define CONFIG_ADC_INPUT_4_PIN 10 	  //PA10
-//#define CONFIG_ADC_INPUT_4_CHANNEL 18
+//#define CONFIG_ADC_INPUT_4_PIN 0
+//#define CONFIG_ADC_INPUT_4_CHANNEL 0
 
 #define CONFIG_ADC_INPUT_5 0 // not used
-//#define CONFIG_ADC_INPUT_5_PIN 11 	  //PA11
-//#define CONFIG_ADC_INPUT_5_CHANNEL 19
+//#define CONFIG_ADC_INPUT_5_PIN 0
+//#define CONFIG_ADC_INPUT_5_CHANNEL 0
 
 #define CONFIG_ADC_INPUT_6 0 // not used
-//#define CONFIG_ADC_INPUT_6_PIN (32 + 8) //PB08
-//#define CONFIG_ADC_INPUT_6_CHANNEL 2
+//#define CONFIG_ADC_INPUT_6_PIN 0
+//#define CONFIG_ADC_INPUT_6_CHANNEL 0
 
 #define CONFIG_ADC_INPUT_7 0 // not used
-//#define CONFIG_ADC_INPUT_7_PIN (32 + 9) //PB09
-//#define CONFIG_ADC_INPUT_7_CHANNEL 3
+//#define CONFIG_ADC_INPUT_7_PIN 0
+//#define CONFIG_ADC_INPUT_7_CHANNEL 0
 
 //* ============== DAC =================== *//
 #define CONFIG_DAC 0
@@ -157,14 +157,14 @@
 #define CONFIG_TIMER_PWM_OUT8 0
 //#define CONFIG_TIMER_PWM_OUT8_TC TC3
 //#define CONFIG_TIMER_PWM_OUT8_TCC NOT_ON_TCC
-//#define CONFIG_TIMER_PWM_OUT8_WO 1
-//#define CONFIG_TIMER_PWM_OUT8_PIN 15 //PA15 - SIGNAL_05
+//#define CONFIG_TIMER_PWM_OUT8_WO 0
+//#define CONFIG_TIMER_PWM_OUT8_PIN 0
 
 #define CONFIG_TIMER_PWM_OUT9 0
 //#define CONFIG_TIMER_PWM_OUT9_TC TC3
 //#define CONFIG_TIMER_PWM_OUT9_TCC NOT_ON_TCC
-//#define CONFIG_TIMER_PWM_OUT9_WO 0
-//#define CONFIG_TIMER_PWM_OUT9_PIN 18 //PA18 - SIGNAL_06
+//#define CONFIG_TIMER_PWM_OUT9_WO 1
+//#define CONFIG_TIMER_PWM_OUT9_PIN 0
 
 //
 //  Some pins support PWM and Analog, but not at the same time.
@@ -174,13 +174,13 @@
 //#define CONFIG_TIMER_PWM_OUT10_TC TC4
 //#define CONFIG_TIMER_PWM_OUT10_TCC NOT_ON_TCC
 //#define CONFIG_TIMER_PWM_OUT10_WO 0
-//#define CONFIG_TIMER_PWM_OUT10_PIN (32 + 8) //PB08 - SIGNAL_03
+//#define CONFIG_TIMER_PWM_OUT10_PIN 0
 
 #define CONFIG_TIMER_PWM_OUT11 0
 //#define CONFIG_TIMER_PWM_OUT11_TC TC4
 //#define CONFIG_TIMER_PWM_OUT11_TCC NOT_ON_TCC
 //#define CONFIG_TIMER_PWM_OUT11_WO 1
-//#define CONFIG_TIMER_PWM_OUT11_PIN (32 + 9) //PB09 - SIGNAL_04
+//#define CONFIG_TIMER_PWM_OUT11_PIN 0
 
 
 //* ============== INTERRUPT =================== *//
@@ -209,6 +209,7 @@
 #define CONFIG_SERCOM4 0
 #define CONFIG_SERCOM5 1
 
+// SERIAL to Raspberry Pi
 #define CONFIG_SERCOM_UART_PIN_RX (32 + 23) //PB23
 #define CONFIG_SERCOM_UART_PIN_TX (32 + 22) //PB22
 #define CONFIG_SERCOM_UART_PAD_TX UART_TX_PAD_2
@@ -216,6 +217,9 @@
 #define CONFIG_SERCOM_UART_BAUD_RATE 115200
 #define CONFIG_SERCOM_UART_MUX_TX 3
 #define CONFIG_SERCOM_UART_MUX_RX 3
+
+// SPI External
+
 
 //* ============== DAP =================== *//
 #define CONFIG_DAP 0
