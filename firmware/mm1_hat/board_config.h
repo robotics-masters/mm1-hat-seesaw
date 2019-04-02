@@ -4,7 +4,7 @@
 #define PRODUCT_CODE 9999
 
 //override default activity led pin
-#define PIN_ACTIVITY_LED 12 // was PB22 now PA12
+#define PIN_ACTIVITY_LED 21 // PA21
 
 //don't use address pins
 #define CONFIG_NO_ADDR
