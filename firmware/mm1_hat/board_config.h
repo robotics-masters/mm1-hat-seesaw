@@ -76,18 +76,18 @@
 
 
 //* ============== TOUCH =================== *//
-#define CONFIG_TOUCH 0
+#define CONFIG_TOUCH 1
 
 #ifndef ENABLE_LOGGING
 #define CONFIG_TOUCH0 1 //this is the UART log pin
 #endif
-//#define CONFIG_TOUCH0_PIN 7
-#define CONFIG_TOUCH1 0
-//#define CONFIG_TOUCH1_PIN 6
-#define CONFIG_TOUCH2 0
-//#define CONFIG_TOUCH2_PIN 5
-#define CONFIG_TOUCH3 0
-//#define CONFIG_TOUCH3_PIN 4
+#define CONFIG_TOUCH0_PIN 7
+#define CONFIG_TOUCH1 1
+#define CONFIG_TOUCH1_PIN 6
+#define CONFIG_TOUCH2 1
+#define CONFIG_TOUCH2_PIN 5
+#define CONFIG_TOUCH3 1
+#define CONFIG_TOUCH3_PIN 4
 
 //* ============== TIMER =================== *//
 #define CONFIG_TIMER 1
