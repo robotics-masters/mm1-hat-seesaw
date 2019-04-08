@@ -85,7 +85,7 @@ class MM1_Pinmap:
     #
     pwm_pins = (_MM1_SERVO1, _MM1_SERVO2, _MM1_SERVO3, _MM1_SERVO4,
                 _MM1_SERVO5, _MM1_SERVO6, _MM1_SERVO7, _MM1_SERVO8,
-                _MM1_SIGNAL12, _MM1_SIGNAL10, _MM1_SIGNAL11, _MM1_SIGNAL12)
+                _MM1_SIGNAL12, _MM1_SIGNAL10, _MM1_SIGNAL11, _MM1_SIGNAL9)
 
     # seesaw firmware touch pin map:
     # touch[0]: 7    touch[1]: 6    touch[2]: 5    touch[3]: 4
