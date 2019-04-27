@@ -66,7 +66,7 @@ from adafruit_motor.motor import DCMotor
 from adafruit_motor.stepper import StepperMotor
 
 __version__ = "0.0.0-auto.0"
-__repo__ = "https://github.com/adafruit/Adafruit_CircuitPython_Crickit.git"
+__repo__ = "https://github.com/robotics-masters/Adafruit_CircuitPython_RoboHat.git"
 
 
 _SERVO1 = const(16)
@@ -108,7 +108,7 @@ class MM1TouchIn:
 
 
 #pylint: disable=too-many-public-methods
-class RoboMM1:
+class RoboHatMM1:
     """Represents a Robo HAT MM1 board. Provides a number of devices available via properties, such as
     ``servo_1``. Devices are created on demand the first time they are referenced.
 
@@ -118,7 +118,7 @@ class RoboMM1:
     .. code-block:: python
 
       import time
-      from adafruit_crickit import crickit
+      from rm_robohat import robohat
 
       # This is fine:
       crickit.servo_1.angle = 0
@@ -133,20 +133,21 @@ class RoboMM1:
       servo_1.angle = 90
       time.sleep(1)
     """
-    SIGNAL0 = 55 # (RX to RPI_TX)
-    SIGNAL1 = 54 # (TX to RPI_RX)
-    SIGNAL2 = 48 # ADC (GPS_RX)
-    SIGNAL3 = 47 # ADC (GPS_TX)
-    SIGNAL4 = 0 # (GPS_SDA)
-    SIGNAL5 = 1 # (GPS_SCL)
-    SIGNAL6 = 2 # (POWER_ENABLE)
-    SIGNAL7 = 3 # (BUTTON)
-    SIGNAL8 = 20 # (NEOPIXEL) 
-    SIGNAL9 =  43 # PWM (SPI_SCK)
-    SIGNAL10 = 41 # PWM (SPI_SS)
-    SIGNAL11 = 42 # PWM (SPI_MOSI)
-    SIGNAL12 = 40 # PWM (SPI_MISO)
-    SIGNAL13 = 21 # BOOT_LED
+    D0 = 55 # (RX to RPI_TX)
+    D1 = 54 # (TX to RPI_RX)
+    D2 = 34 # ADC (GPS_TX)
+    D3 = 35 # ADC (GPS_RX)
+    D4 = 0 # (GPS_SDA)
+    D5 = 1 # (GPS_SCL)
+    D6 = 28 # (POWER_ENABLE)
+    D7 = 2 # (BATTERY)
+    D8 = 20 # (NEOPIXEL) 
+    D9 =  43 # PWM (SPI_SCK)
+    D10 = 41 # PWM (SPI_SS)
+    D11 = 42 # PWM (SPI_MOSI)
+    D12 = 40 # PWM (SPI_MISO)
+    D13 = 21 # LED
+    D14 = 3  # (POWER_OFF)
 
     def __init__(self, seesaw):
         self._seesaw = seesaw
@@ -348,4 +349,4 @@ robohat = None # pylint: disable=invalid-name
 
 # Sphinx's board is missing real pins so skip the constructor in that case.
 if "SCL" in dir(board):
-    robohat = RoboMM1(Seesaw(busio.I2C(board.SCL, board.SDA))) # pylint: disable=invalid-name
+    robohat = RoboHatMM1(Seesaw(busio.I2C(board.SCL, board.SDA))) # pylint: disable=invalid-name
