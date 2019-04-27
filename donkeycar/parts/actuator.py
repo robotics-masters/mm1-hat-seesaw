@@ -42,7 +42,7 @@ class ROBOHATMM1:
 
     def set_pulse(self, pulse):
         try:
-            print("pulse: ", pulse)
+            #print("pulse: ", pulse)
             self.pwm.duty_cycle = pulse
         except OSError as err:
             print("Unexpected issue setting PWM (check wires to motor board): {0}".format(err))

@@ -26,72 +26,69 @@ from micropython import const
 __version__ = "0.0.0-auto.0"
 __repo__ = "https://github.com/adafruit/Adafruit_CircuitPython_seesaw.git"
 
+# Robo HAT MM1 Board: https://www.crowdsupply.com/robotics-masters/robo-hat-mm1
 
 # The ordering here reflects the seesaw firmware (mm1_hat) pinmap for Robo HAT MM1,
 # not logical ordering of the HAT terminals.
 
-_MM1_SIGNAL1 = const(34) # ADC
-_MM1_SIGNAL2 = const(35) # ADC
-_MM1_SIGNAL3 = const(40) # ADC/PWM
-_MM1_SIGNAL4 = const(41) # ADC/PWM
-_MM1_SIGNAL5 = const(15) # PWM
-_MM1_SIGNAL6 = const(18) # PWM
-_MM1_SIGNAL7 = const(54) # not used, serial port
-_MM1_SIGNAL8 = const(55) # not used, serial port
-_MM1_SIGNAL9 = const(2)  # ADC
-_MM1_SIGNAL10 = const(3) # ADC
-_MM1_SIGNAL11 = const(12) # not used, BOOT_LED
+_MM1_D0 = const(55) # (RX to RPI_TX)
+_MM1_D1 = const(54) # (TX to RPI_RX)
+_MM1_D2 = const(34) # ADC (GPS_TX)
+_MM1_D3 = const(35) # ADC (GPS_RX)
+_MM1_D4 = const(0) # (GPS_SDA)
+_MM1_D5 = const(1) # (GPS_SCL)
+_MM1_D6 = const(28) # (POWER_ENABLE)
+_MM1_D7 = const(2) # (BATTERY)
+_MM1_D8 = const(20) # (NEOPIXEL) 
+_MM1_D9 =  const(43) # PWM (SPI_SCK)
+_MM1_D10 = const(41) # PWM (SPI_SS)
+_MM1_D11 = const(42) # PWM (SPI_MOSI)
+_MM1_D12 = const(40) # PWM (SPI_MISO)
+_MM1_D13 = const(21) # LED
+_MM1_D14 = const(3)  # (POWER_OFF)
 
-_MM1_SERVO8 = const(17)
-_MM1_SERVO7 = const(16)
-_MM1_SERVO6 = const(11) # also ADC
-_MM1_SERVO5 = const(10) # also ADC
-_MM1_SERVO4 = const(21)
-_MM1_SERVO3 = const(20)
-_MM1_SERVO2 = const(43)
-_MM1_SERVO1 = const(42)
+_MM1_SERVO8 = const(8)
+_MM1_SERVO7 = const(9)
+_MM1_SERVO6 = const(10)
+_MM1_SERVO5 = const(11)
+_MM1_SERVO4 = const(19)
+_MM1_SERVO3 = const(18)
+_MM1_SERVO2 = const(17)
+_MM1_SERVO1 = const(16)
 
-_MM1_RCH1 = const(4)
-_MM1_RCH2 = const(5)
-_MM1_RCH3 = const(6)
-_MM1_RCH4 = const(7)
+_MM1_RCH1 = const(7)
+_MM1_RCH2 = const(6)
+_MM1_RCH3 = const(5)
+_MM1_RCH4 = const(4)
 
 
 # seesaw firmware has indexed lists of pins by function.
 # These "pin" numbers map to real PAxx, PBxx pins on the board implementing seesaaw
 # They may or may not match.
-# See seesaw/include/SeesawConfig.h and seesaw/boards/mm1_hat/board_config.h for the pin choices.
+# See seesaw/include/SeesawConfig.h and seesaw/boards/robohatmm1/board_config.h for the pin choices.
 
 # You must look at both files and combine the defaults in SeesawConfig.h with the
-# overrides in mm1_hat/board_config.h.
+# overrides in robohatmm1/board_config.h.
 # PA<nn> pins are nn
 # PB<nn> pins are 32+nn
 
 class MM1_Pinmap:
     # seesaw firmware (mm1_hat) analog pin map:
-    # analog[0]:34    analog[1]:35    analog[2]: 2    analog[3]: 3
-    # analog[4]:40    analog[5]:41    analog[6]:10    analog[7]:11
-    # note:  analog[4:7] not enabled by default.
-    # note:  analog[4:5] swappable with pwm[10:11]
-    # note:  analog[6:7] swappable with pwm[4:5]
+    # analog[0]:47    analog[1]:48    analog[2]:     analog[3]: 
+    # analog[4]:    analog[5]:    analog[6]:    analog[7]:
     # 
-    analog_pins = (_MM1_SIGNAL1, _MM1_SIGNAL2,
-                   _MM1_SIGNAL9, _MM1_SIGNAL10)#,
-                   #_MM1_SIGNAL3, _MM1_SIGNAL4,
-                   #_MM1_SERVO5, _MM1_SERVO6)
+    analog_pins = (_MM1_D3, _MM1_D2)
 
     pwm_width = 16
 
     # seesaw firmware (mm1_hat) pwm pin map:
-    # pwm[0]:42    pwm[1]:43    pwm[2]:20    pwm[3]:21    pwm[4]:10    pwm[5]:11
-    # pwm[6]:16    pwm[7]:17    pwm[8]:15    pwm[9]:18    pwm[10]:40   pwm[11]:41
-    # note: pwm[10:11] swappable with analog[4:5]
+    # pwm[0]:16   pwm[1]:17    pwm[2]:18    pwm[3]:19    pwm[4]:11    pwm[5]:10
+    # pwm[6]:9    pwm[7]:8    pwm[8]:40    pwm[9]:41    pwm[10]:42   pwm[11]:43
     #
     pwm_pins = (_MM1_SERVO1, _MM1_SERVO2, _MM1_SERVO3, _MM1_SERVO4,
                 _MM1_SERVO5, _MM1_SERVO6, _MM1_SERVO7, _MM1_SERVO8,
-                _MM1_SIGNAL5, _MM1_SIGNAL6,
-                _MM1_SIGNAL3, _MM1_SIGNAL4)
+                _MM1_D12, _MM1_D10, _MM1_D11, _MM1_D9)
 
     # seesaw firmware touch pin map:
-    # touch[0]: 4    touch[1]: 5    touch[2]: 6    touch[3]: 7
+    # touch[0]: 7    touch[1]: 6    touch[2]: 5    touch[3]: 4
     touch_pins = (_MM1_RCH1, _MM1_RCH2, _MM1_RCH3, _MM1_RCH4)

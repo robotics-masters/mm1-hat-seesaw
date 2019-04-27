@@ -6,12 +6,23 @@ Use with https://github.com/adafruit/seesaw/
 
 Until our library is allowed to be included into the adafruit/seesaw repository, you must clone this repository and the seesaw repository.
 
+### Install Build Tools
+
+```
+sudo add-apt-repository ppa:team-gcc-arm-embedded/ppa
+sudo apt-get update
+sudo apt-get install gcc-arm-embedded
+```
+
+### Clone Repositories
+
 ```
 git clone https://github.com/robotics-masters/mm1-hat-seesaw
 git clone https://github.com/adafruit/seesaw/
 cd seesaw/
 cp -r ../mm1-hat-seesaw/firmware/mm1_hat boards/mm1_hat
 ```
+
 
 ## Build commands
 
