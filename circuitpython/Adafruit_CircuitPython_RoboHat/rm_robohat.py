@@ -121,16 +121,16 @@ class RoboHatMM1:
       from rm_robohat import robohat
 
       # This is fine:
-      crickit.servo_1.angle = 0
+      robohat.servo_1.angle = 0
       time.sleep(1)
-      crickit.servo_1.angle = 90
+      robohat.servo_1.angle = 90
       time.sleep(1)
 
       # This is slightly faster and more compact:
-      servo_1 = crickit.servo_1
-      servo_1.angle = 0
+      robohat = crickit.servo_1
+      robohat.angle = 0
       time.sleep(1)
-      servo_1.angle = 90
+      robohat.angle = 90
       time.sleep(1)
     """
     D0 = 55 # (RX to RPI_TX)
@@ -159,16 +159,16 @@ class RoboHatMM1:
 
     @property
     def seesaw(self):
-        """The Seesaw object that talks to the Crickit. Use this object to manipulate the
-        signal pins that correspond to Crickit terminals.
+        """The Seesaw object that talks to the Robo HAT. Use this object to manipulate the
+        digital pins that correspond to Robo HAT (soft) terminals.
 
         .. code-block:: python
 
-          from adafruit_crickit import crickit
+          from rm_robohat import robohat
 
-          ss = crickit.seesaw
-          ss.pin_mode(crickit.SIGNAL4, ss.OUTPUT)
-          ss.digital_write(crickit.SIGNAL4], True)
+          ss = robohat.seesaw
+          ss.pin_mode(robohat.D4, ss.OUTPUT)
+          ss.digital_write(robohat.D4], True)
         """
 
         return self._seesaw
