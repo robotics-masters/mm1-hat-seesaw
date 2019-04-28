@@ -237,6 +237,9 @@
 #define CONFIG_SERCOM_UART_MUX_RX 3
 
 
+//* ============== ENCODER =================== *//
+#define CONFIG_ENCODER 0
+
 //* ============== DAP =================== *//
 #define CONFIG_DAP 0
 
