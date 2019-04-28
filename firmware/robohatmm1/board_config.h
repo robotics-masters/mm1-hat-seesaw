@@ -48,7 +48,10 @@
 #define CONFIG_ADC_INPUT_4 0 // not used
 #define CONFIG_ADC_INPUT_5 0 // not used
 #define CONFIG_ADC_INPUT_6 0 // not used
+#define CONFIG_ADC_INPUT_6_PIN 0
 #define CONFIG_ADC_INPUT_7 0 // not used
+#define CONFIG_ADC_INPUT_7_PIN 0
+
 
 //we will override some of the default ADC pins for this board
 //#define CONFIG_ADC_INPUT_0 1
