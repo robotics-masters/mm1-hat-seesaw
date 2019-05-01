@@ -33,7 +33,7 @@
 
 
 //* ============== ADC =================== *//
-#define CONFIG_ADC 0
+#define CONFIG_ADC 1
 
 #define CONFIG_ADC_INPUT_0 1
 #define CONFIG_ADC_INPUT_0_PIN (32 + 2)	// PB02 - GPS_TX
@@ -189,7 +189,7 @@
 #define CONFIG_I2C_SLAVE_PIN_SDA 22
 #define CONFIG_I2C_SLAVE_PIN_SCL 23
 #define CONFIG_I2C_SLAVE_MUX 2
-#define CONFIG_I2C_SLAVE_FLOW_CONTROL 1
+#define CONFIG_I2C_SLAVE_FLOW_CONTROL 0
 //#define CONFIG_I2C_SLAVE_FLOW_CONTROL_PIN 23
 #define CONFIG_I2C_SLAVE_ADDR 0x49
 
