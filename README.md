@@ -18,3 +18,16 @@ Please see the [mm1-hat-seesaw/firmware](https://github.com/robotics-masters/mm1
 ## Install SeeSaw for Python3.x
 
 Please see the [mm1-hat-seesaw/circuitpython](https://github.com/robotics-masters/mm1-hat-seesaw/tree/master/circuitpython) folder for further instructions.
+
+## Installing for Donkey Car
+
+Assumes Python3 Installed.
+
+```
+pip install donkeycar[pi]
+sudo pip install adafruit-circuitpython-seesaw
+sudo pip install adafruit_circuitpython_motor
+donkeycar createcar ~/mycar
+```
+
+Follow SeeSaw install instructions for circuitpython.

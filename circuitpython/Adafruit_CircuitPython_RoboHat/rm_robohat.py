@@ -66,27 +66,27 @@ from adafruit_motor.motor import DCMotor
 from adafruit_motor.stepper import StepperMotor
 
 __version__ = "0.0.0-auto.0"
-__repo__ = "https://github.com/adafruit/Adafruit_CircuitPython_Crickit.git"
+__repo__ = "https://github.com/robotics-masters/Adafruit_CircuitPython_RoboHat.git"
 
 
-_SERVO1 = const(42)
-_SERVO2 = const(43)
-_SERVO3 = const(20)
-_SERVO4 = const(21)
-_SERVO5 = const(10)
-_SERVO6 = const(11)
-_SERVO7 = const(16)
-_SERVO8 = const(17)
+_SERVO1 = const(16)
+_SERVO2 = const(17)
+_SERVO3 = const(18)
+_SERVO4 = const(19)
+_SERVO5 = const(11)
+_SERVO6 = const(10)
+_SERVO7 = const(9)
+_SERVO8 = const(8)
 
 _servoPins = [_SERVO1, _SERVO2, _SERVO3, _SERVO4,
            _SERVO5, _SERVO6, _SERVO7, _SERVO8]
 
-_RCH1 = const(4)
-_RCH2 = const(5)
-_RCH3 = const(6)
-_RCH4 = const(7)
+_RCH1 = const(7)
+_RCH2 = const(6)
+_RCH3 = const(5)
+_RCH4 = const(4)
 
-_NEOPIXEL = const(19)
+_NEOPIXEL = const(20)
 
 #pylint: disable=too-few-public-methods
 class MM1TouchIn:
@@ -108,7 +108,7 @@ class MM1TouchIn:
 
 
 #pylint: disable=too-many-public-methods
-class RoboMM1:
+class RoboHatMM1:
     """Represents a Robo HAT MM1 board. Provides a number of devices available via properties, such as
     ``servo_1``. Devices are created on demand the first time they are referenced.
 
@@ -118,33 +118,36 @@ class RoboMM1:
     .. code-block:: python
 
       import time
-      from adafruit_crickit import crickit
+      from rm_robohat import robohat
 
       # This is fine:
-      crickit.servo_1.angle = 0
+      robohat.servo_1.angle = 0
       time.sleep(1)
-      crickit.servo_1.angle = 90
+      robohat.servo_1.angle = 90
       time.sleep(1)
 
       # This is slightly faster and more compact:
-      servo_1 = crickit.servo_1
-      servo_1.angle = 0
+      robohat = crickit.servo_1
+      robohat.angle = 0
       time.sleep(1)
-      servo_1.angle = 90
+      robohat.angle = 90
       time.sleep(1)
     """
-
-    SIGNAL1 = 34 # ADC
-    SIGNAL2 = 35 # ADC
-    SIGNAL3 = 40 # ADC/PWM
-    SIGNAL4 = 41 # ADC/PWM
-    SIGNAL5 = 15 # PWM
-    SIGNAL6 = 18 # PWM
-    SIGNAL7 = 54 # not used, serial port
-    SIGNAL8 = 55 # not used, serial port
-    SIGNAL9 = 2  # ADC
-    SIGNAL10 = 3 # ADC
-    SIGNAL11 = 12 # not used, BOOTLED
+    D0 = 55 # (RX to RPI_TX)
+    D1 = 54 # (TX to RPI_RX)
+    D2 = 34 # ADC (GPS_TX)
+    D3 = 35 # ADC (GPS_RX)
+    D4 = 0 # (GPS_SDA)
+    D5 = 1 # (GPS_SCL)
+    D6 = 28 # (POWER_ENABLE)
+    D7 = 2 # (BATTERY)
+    D8 = 20 # (NEOPIXEL) 
+    D9 =  43 # PWM (SPI_SCK)
+    D10 = 41 # PWM (SPI_SS)
+    D11 = 42 # PWM (SPI_MOSI)
+    D12 = 40 # PWM (SPI_MISO)
+    D13 = 21 # LED
+    D14 = 3  # (POWER_OFF)
 
     def __init__(self, seesaw):
         self._seesaw = seesaw
@@ -156,16 +159,16 @@ class RoboMM1:
 
     @property
     def seesaw(self):
-        """The Seesaw object that talks to the Crickit. Use this object to manipulate the
-        signal pins that correspond to Crickit terminals.
+        """The Seesaw object that talks to the Robo HAT. Use this object to manipulate the
+        digital pins that correspond to Robo HAT (soft) terminals.
 
         .. code-block:: python
 
-          from adafruit_crickit import crickit
+          from rm_robohat import robohat
 
-          ss = crickit.seesaw
-          ss.pin_mode(crickit.SIGNAL4, ss.OUTPUT)
-          ss.digital_write(crickit.SIGNAL4], True)
+          ss = robohat.seesaw
+          ss.pin_mode(robohat.D4, ss.OUTPUT)
+          ss.digital_write(robohat.D4], True)
         """
 
         return self._seesaw
@@ -209,7 +212,7 @@ class RoboMM1:
     def servo_8(self):
         """``adafruit_motor.servo.Servo`` object on Servo 8 terminal"""
         return self._servo(_SERVO8, Servo)
-    
+
 
     @property
     def continuous_servo_1(self):
@@ -251,10 +254,6 @@ class RoboMM1:
         """``adafruit_motor.servo.ContinuousServo`` object on Servo 8 terminal"""
         return self._servo(_SERVO8, ContinuousServo)
 
-    @property
-    def anyservo(self, terminal):
-        return self._servo(terminal, Servo)
-    
     def _servo(self, terminal, servo_class):
         device = self._devices.get(terminal, None)
         if not isinstance(device, servo_class):
@@ -263,17 +262,13 @@ class RoboMM1:
             device = servo_class(pwm)
             self._devices[terminal] = device
         return device
-        
-    def _pulseout(self, terminal):
-        device = self._devices.get(terminal, None)
-        if not isinstance(device, Servo):
-            pwm = PWMOut(self._seesaw, terminal)
-            pwm.frequency = 50
-            device = pwm
-            self._devices[terminal] = device
-        return device
-            
 
+    def get_channel(self, index):
+        """ For converting to servo numbers to pins """
+        if index < 9 and index > 0:
+            return _servoPins[index - 1]
+        else:
+            raise ValueError("Incorrect servo pin index")
 
     @property
     def touch_1(self):
@@ -346,4 +341,4 @@ robohat = None # pylint: disable=invalid-name
 
 # Sphinx's board is missing real pins so skip the constructor in that case.
 if "SCL" in dir(board):
-    robohat = RoboMM1(Seesaw(busio.I2C(board.SCL, board.SDA))) # pylint: disable=invalid-name
+    robohat = RoboHatMM1(Seesaw(busio.I2C(board.SCL, board.SDA))) # pylint: disable=invalid-name
