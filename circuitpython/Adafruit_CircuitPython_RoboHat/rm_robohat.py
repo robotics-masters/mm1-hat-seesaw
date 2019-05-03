@@ -212,7 +212,7 @@ class RoboHatMM1:
     def servo_8(self):
         """``adafruit_motor.servo.Servo`` object on Servo 8 terminal"""
         return self._servo(_SERVO8, Servo)
-    
+
 
     @property
     def continuous_servo_1(self):
@@ -254,10 +254,6 @@ class RoboHatMM1:
         """``adafruit_motor.servo.ContinuousServo`` object on Servo 8 terminal"""
         return self._servo(_SERVO8, ContinuousServo)
 
-    @property
-    def anyservo(self, terminal):
-        return self._servo(terminal, Servo)
-    
     def _servo(self, terminal, servo_class):
         device = self._devices.get(terminal, None)
         if not isinstance(device, servo_class):
@@ -266,17 +262,13 @@ class RoboHatMM1:
             device = servo_class(pwm)
             self._devices[terminal] = device
         return device
-        
-    def _pulseout(self, terminal):
-        device = self._devices.get(terminal, None)
-        if not isinstance(device, Servo):
-            pwm = PWMOut(self._seesaw, terminal)
-            pwm.frequency = 50
-            device = pwm
-            self._devices[terminal] = device
-        return device
-            
 
+    def get_channel(self, index):
+        """ For converting to servo numbers to pins """
+        if index < 9 and index > 0:
+            return _servoPins[index - 1]
+        else:
+            raise ValueError("Incorrect servo pin index")
 
     @property
     def touch_1(self):
