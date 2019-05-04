@@ -77,7 +77,7 @@ class MM1_Pinmap:
     # analog[0]:47    analog[1]:48    analog[2]:     analog[3]: 
     # analog[4]:    analog[5]:    analog[6]:    analog[7]:
     # 
-    analog_pins = (_MM1_D3, _MM1_D2)
+    analog_pins = (_MM1_RCH1, _MM1_RCH2, _MM1_RCH3, _MM1_RCH4, _MM1_D3, _MM1_D2)
 
     pwm_width = 16
 
@@ -91,4 +91,4 @@ class MM1_Pinmap:
 
     # seesaw firmware touch pin map:
     # touch[0]: 7    touch[1]: 6    touch[2]: 5    touch[3]: 4
-    touch_pins = (_MM1_RCH1, _MM1_RCH2, _MM1_RCH3, _MM1_RCH4)
+    touch_pins = ()
