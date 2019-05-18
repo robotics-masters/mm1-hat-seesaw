@@ -108,8 +108,9 @@ def drive(cfg, model_path=None, use_joystick=False, use_chaos=False):
     actuator_type = cfg.ACTUATOR_MODE # normal, seesaw, serial
 
     if actuator_type == 'serial':
-        steering_controller = SerialDevice(cfg.STEERING_CHANNEL)
-        throttle_controller = SerialDevice(cfg.THROTTLE_CHANNEL)
+        pass
+        #steering_controller = SerialDevice(cfg.STEERING_CHANNEL)
+        #throttle_controller = SerialDevice(cfg.THROTTLE_CHANNEL)
     elif actuator_type == 'seesaw':
         steering_controller = RoboHATMM1(cfg.STEERING_CHANNEL)
         throttle_controller = RoboHATMM1(cfg.THROTTLE_CHANNEL)
@@ -118,17 +119,20 @@ def drive(cfg, model_path=None, use_joystick=False, use_chaos=False):
         throttle_controller = PCA9685(cfg.THROTTLE_CHANNEL)
 
     ## This Creates the magic PWM parts for the Controllers above.
-    steering = PWMSteering(controller=steering_controller,
-                           left_pulse=cfg.STEERING_LEFT_PWM,
-                           right_pulse=cfg.STEERING_RIGHT_PWM)
+    if actuator_type is not 'serial':
+        steering = PWMSteering(controller=steering_controller,
+                               left_pulse=cfg.STEERING_LEFT_PWM,
+                               right_pulse=cfg.STEERING_RIGHT_PWM)
 
-    throttle = PWMThrottle(controller=throttle_controller,
-                           max_pulse=cfg.THROTTLE_FORWARD_PWM,
-                           zero_pulse=cfg.THROTTLE_STOPPED_PWM,
-                           min_pulse=cfg.THROTTLE_REVERSE_PWM)
+        throttle = PWMThrottle(controller=throttle_controller,
+                               max_pulse=cfg.THROTTLE_FORWARD_PWM,
+                               zero_pulse=cfg.THROTTLE_STOPPED_PWM,
+                               min_pulse=cfg.THROTTLE_REVERSE_PWM)
 
-    V.add(steering, inputs=['angle'])
-    V.add(throttle, inputs=['throttle'])
+        V.add(steering, inputs=['angle'])
+        V.add(throttle, inputs=['throttle'])
+    else:
+        V.add(SerialDevice(), inputs['angle', 'throttle'])
 
     # add tub to save data
     inputs = ['cam/image_array', 'user/angle', 'user/throttle', 'user/mode', 'timestamp']
